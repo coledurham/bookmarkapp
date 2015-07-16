@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   		<script type="text/javascript" src="scripts/angular.min.js"></script>
+      	<script type="text/javascript" src="/scripts/angular-local-storage.min.js"></script>
+   </head>
+   <body>
+      <div data-ng-app="bookmarkapp">
+         <h1>Bookmark App</h1>
+         <div data-ng-controller="AppCtrl">
+            <ul ng-repeat="item in userData">
+               <li>
+                  <div>{{ item.name}}</div>
+                  <div>{{ item.url}}</div>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <script type="text/javascript" src="scripts/app.js"></script>
+   </body>
+</html>
