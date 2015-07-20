@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html>
    <head>
+         <link rel="stylesheet" href="styles/bootstrap.min.css" />
+         <link rel="stylesheet" href="styles/bootstrap-theme.min.css" />
+         <link rel="stylesheet" href="styles/app.css" />
+         <script type="text/javascript" src="scripts/jquery-1.1.13.min.js"></script>
+         <script type="text/javascript" src="scripts/jquery.validate.min.js"></script>
+         <script type="text/javascript" src="scripts/additional-methods.min.js"></script>
    		<script type="text/javascript" src="scripts/angular.min.js"></script>
-      	<script type="text/javascript" src="/scripts/angular-local-storage.min.js"></script>
+      	<script type="text/javascript" src="scripts/angular-local-storage.min.js"></script>
    </head>
    <body>
       <div data-ng-app="bookmarkapp">
-         <h1>Bookmark App</h1>
          <div data-ng-controller="AppCtrl">
-            <ul ng-repeat="item in userData">
-               <li>
-                  <div>{{ item.name}}</div>
-                  <div>{{ item.url}}</div>
-               </li>
-            </ul>
+            <h1>Bookmark App</h1>
+            <h2 ng-show="user">{{user}}</h2>
+            <form ng-show="!user">
+            	<input class="form-control" type="text" value="Type User Name" data-default-value="Type User Name" ng-hide="user">
+               <input class="form-control" ng-click="login($event)" type="submit" value="LOGIN" ng-hide="user">
+            </form>
+            <div ng-show="user">
+               <table class="table-bordered results">
+               	<thead>
+               		<tr>
+               			<td>Type</td>
+               			<td>URL</td>
+               			<td>Name</td>
+               			<td>&nbsp;</td>
+                        <td>&nbsp;</td>
+               		</tr>
+               	</thead>
+               	<tbody>
+               		<tr ng-repeat="item in userData" ng-include="'templates/bookmarkrow.html'"></tr>
+               	</tbody>
+               </table>
+               <input type="button" class="btn btn-default" value="ADD RESOURCE" ng-click="addRow($event)">
+               <input type="button" class="btn btn-default" value="CLEAR ALL" ng-click="clearAll($event)">
+            </div>
          </div>
       </div>
       <script type="text/javascript" src="scripts/app.js"></script>

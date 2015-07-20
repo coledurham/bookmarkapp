@@ -1,0 +1,21 @@
+<td>
+	<span>{{item.type}}</span>
+	<select class="form-control resource-type hidden">
+		<option selected-value="{{option.value}}" ng-selected="{{item.type == option.value}}" ng-repeat="option in typeOptions">{{option.name}}</option>
+	</select>
+</td>
+<td>
+	<span>{{item.url}}</span>
+	<input class="form-control resource-url" type="hidden" value="{{item.url}}">
+</td>
+<td>
+	<span>{{item.name}}</span>
+	<input class="form-control resource-name" type="hidden" value="{{item.name}}">
+</td>
+<td>
+	<input class="btn btn-default edit" type="button" value="EDIT" ng-click="editRow($event)">
+	<input class="btn btn-default hidden save" type="button" value="SAVE" ng-click="saveData($event)">
+</td>
+<td>
+	<input class="btn btn-default" type="button" value="DELETE" ng-click="deleteRow($event)">
+</td>
